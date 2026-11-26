@@ -1,0 +1,17 @@
+# Binaries & generated Windows PE resources
+/sshm.exe
+/sshm
+*.syso
+/bin/
+/dist/
+
+# Test & coverage artifacts
+*.out
+*.test
+
+# Local encrypted backups & signing certs (NEVER commit)
+*.sshm.enc
+*.pfx
+*.p12
+*.key
+*.pem

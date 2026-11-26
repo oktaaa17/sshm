@@ -1,0 +1,50 @@
+name: CI & Security Gates
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-security:
+    name: Test, Vet & Security (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ windows-latest, ubuntu-latest ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Run go vet
+        run: go vet ./...
+
+      - name: Run unit & integration tests with race detector
+        run: go test -race -coverprofile=coverage.out ./...
+
+      - name: Run govulncheck (dependency & stdlib CVE scan)
+        run: go run golang.org/x/vuln/cmd/govulncheck@latest ./...
+
+      - name: Run gosec (static security analysis)
+        run: go run github.com/securego/gosec/v2/cmd/gosec@latest -severity medium ./...
+
+      - name: Verify Windows PE metadata & reproducible build
+        if: matrix.os == 'windows-latest'
+        shell: pwsh
+        run: |
+          go generate ./cmd/sshm
+          $env:CGO_ENABLED = "0"
+          go build -trimpath -o dist/sshm.exe ./cmd/sshm
+          $vi = (Get-Item dist/sshm.exe).VersionInfo
+          if ($vi.CompanyName -ne "Oktanetflow") { throw "Unexpected CompanyName: $($vi.CompanyName)" }
+          .\dist\sshm.exe --version
