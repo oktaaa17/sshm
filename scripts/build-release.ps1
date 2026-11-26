@@ -45,19 +45,22 @@ if ($Sign) {
 
 if (-not $SkipInstaller) {
     Write-Host "==> [4/5] Building Inno Setup per-user Windows EXE installer..." -ForegroundColor Cyan
-    $iscc = Get-Command iscc.exe -ErrorAction SilentlyContinue
-    if (-not $iscc) {
+    $isccPath = $null
+    $isccCmd = Get-Command iscc.exe -ErrorAction SilentlyContinue
+    if ($isccCmd) {
+        $isccPath = $isccCmd.Source
+    } else {
         $candidates = @(
             "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe",
             "$env:LOCALAPPDATA\Programs\Inno Setup 6\ISCC.exe"
         )
         foreach ($c in $candidates) {
-            if (Test-Path $c) { $iscc = Get-Item $c; break }
+            if (Test-Path $c) { $isccPath = $c; break }
         }
     }
-    if ($iscc) {
+    if ($isccPath) {
         $issPath = Join-Path $PSScriptRoot "..\packaging\windows\sshm.iss"
-        & $iscc.FullName "/DMyAppVersion=$Version" $issPath
+        & $isccPath "/DMyAppVersion=$Version" $issPath
         if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
         $installerPath = Join-Path $distDir "sshm-setup-$Version-amd64.exe"
         if (Test-Path $installerPath) {

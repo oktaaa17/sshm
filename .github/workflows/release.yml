@@ -82,15 +82,19 @@ jobs:
         shell: pwsh
         run: |
           $v = "${{ steps.ver.outputs.version }}"
-          $iscc = Get-Command iscc.exe -ErrorAction SilentlyContinue
-          if (-not $iscc -and (Test-Path "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe")) {
-            $iscc = Get-Item "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
-          }
-          if (-not $iscc) {
+          $isccPath = $null
+          $cmd = Get-Command iscc.exe -ErrorAction SilentlyContinue
+          if ($cmd) {
+            $isccPath = $cmd.Source
+          } elseif (Test-Path "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe") {
+            $isccPath = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
+          } else {
             choco install innosetup -y
-            $iscc = Get-Item "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
+            $isccPath = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
           }
-          & $iscc.FullName "/DMyAppVersion=$v" packaging/windows/sshm.iss
+          Write-Host "Using ISCC: $isccPath"
+          & $isccPath "/DMyAppVersion=$v" packaging/windows/sshm.iss
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Sign installer with Authenticode PFX (if configured)
         if: env.AUTHENTICODE_PFX_BASE64 != ''
