@@ -1,6 +1,6 @@
 ; Inno Setup 6 Per-User Installer Script for sshm
 ; Copyright © 2026 Oktanetflow
-; https://github.com/Oktanetflow/sshm
+; https://github.com/oktaaa17/sshm
 
 #ifndef MyAppVersion
   #define MyAppVersion "1.0.0"
@@ -9,7 +9,7 @@
 #define MyAppName "sshm"
 #define MyAppPublisher "Oktanetflow"
 #define MyAppCopyright "Copyright © 2026 Oktanetflow"
-#define MyAppURL "https://github.com/Oktanetflow/sshm"
+#define MyAppURL "https://github.com/oktaaa17/sshm"
 #define MyAppExeName "sshm.exe"
 
 [Setup]

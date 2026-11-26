@@ -6,8 +6,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/Oktanetflow/sshm/internal/config"
-	"github.com/Oktanetflow/sshm/internal/credstore"
+	"github.com/oktaaa17/sshm/internal/config"
+	"github.com/oktaaa17/sshm/internal/credstore"
 )
 
 // BackupBundle holds an encrypted snapshot of sshm config, hosts, and optional credentials.

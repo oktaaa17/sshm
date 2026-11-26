@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Oktanetflow/sshm/internal/config"
+	"github.com/oktaaa17/sshm/internal/config"
 )
 
 // ProbeStatus represents the TCP reachability state of an SSH host.

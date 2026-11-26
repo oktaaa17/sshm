@@ -22,7 +22,7 @@ param(
     [string]$Thumbprint = $env:AUTHENTICODE_THUMBPRINT,
     [string]$TimestampUrl = "http://timestamp.digicert.com",
     [string]$Description = "sshm — Minimalist CLI/TUI SSH Client by Oktanetflow",
-    [string]$DescriptionUrl = "https://github.com/Oktanetflow/sshm"
+    [string]$DescriptionUrl = "https://github.com/oktaaa17/sshm"
 )
 
 $ErrorActionPreference = "Stop"

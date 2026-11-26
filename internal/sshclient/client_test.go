@@ -14,8 +14,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Oktanetflow/sshm/internal/config"
-	"github.com/Oktanetflow/sshm/internal/credstore"
+	"github.com/oktaaa17/sshm/internal/config"
+	"github.com/oktaaa17/sshm/internal/credstore"
 	"golang.org/x/crypto/ssh"
 )
 

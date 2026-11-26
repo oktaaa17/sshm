@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Oktanetflow/sshm/internal/cli"
+	"github.com/oktaaa17/sshm/internal/cli"
 )
 
 func main() {

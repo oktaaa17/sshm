@@ -35,7 +35,7 @@
    ```
 3. **GitHub Artifact Attestation Verification:**
    ```powershell
-   gh attestation verify sshm-setup-1.0.0-amd64.exe --owner Oktanetflow
+   gh attestation verify sshm-setup-1.0.0-amd64.exe --owner oktaaa17
    ```
 
 If you are maintaining releases for Oktanetflow and want zero SmartScreen warnings for first-time downloaders, follow [docs/WINDOWS_PUBLISHER_GUIDE.md](docs/WINDOWS_PUBLISHER_GUIDE.md).
@@ -60,4 +60,4 @@ powershell -ExecutionPolicy Bypass -File scripts/security-scan.ps1
 ## Reporting a Vulnerability
 
 Please **do not** open public GitHub issues for security vulnerabilities.
-Report privately via GitHub Security Advisories at `https://github.com/Oktanetflow/sshm/security/advisories/new` (or contact Oktanetflow security maintainers directly). We aim to acknowledge reports within 48 hours.
+Report privately via GitHub Security Advisories at `https://github.com/oktaaa17/sshm/security/advisories/new` (or contact Oktanetflow security maintainers directly). We aim to acknowledge reports within 48 hours.

@@ -1,4 +1,4 @@
-module github.com/Oktanetflow/sshm
+module github.com/oktaaa17/sshm
 
 go 1.26.0
 

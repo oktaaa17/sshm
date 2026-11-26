@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Oktanetflow/sshm/internal/config"
+	"github.com/oktaaa17/sshm/internal/config"
 )
 
 // ImportSSHConfig parses an OpenSSH client config file (~/.ssh/config) into sshm Host records.

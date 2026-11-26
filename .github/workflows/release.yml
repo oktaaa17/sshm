@@ -56,11 +56,11 @@ jobs:
           $env:CGO_ENABLED = "0"
           $env:GOOS = "windows"
           $env:GOARCH = "amd64"
-          go build -trimpath -ldflags "-s -w -X github.com/Oktanetflow/sshm/internal/cli.Version=$v" -o dist/sshm.exe ./cmd/sshm
+          go build -trimpath -ldflags "-s -w -X github.com/oktaaa17/sshm/internal/cli.Version=$v" -o dist/sshm.exe ./cmd/sshm
           Copy-Item dist/sshm.exe "dist/sshm-$v-windows-amd64.exe"
 
           $env:GOARCH = "arm64"
-          go build -trimpath -ldflags "-s -w -X github.com/Oktanetflow/sshm/internal/cli.Version=$v" -o "dist/sshm-$v-windows-arm64.exe" ./cmd/sshm
+          go build -trimpath -ldflags "-s -w -X github.com/oktaaa17/sshm/internal/cli.Version=$v" -o "dist/sshm-$v-windows-arm64.exe" ./cmd/sshm
 
       - name: Sign binaries with Authenticode PFX (if configured)
         if: env.AUTHENTICODE_PFX_BASE64 != ''

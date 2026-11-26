@@ -2,7 +2,7 @@
 
 > **Product:** `sshm` (`sshm.exe`) — Minimalist & Agile CLI/TUI SSH Client for Windows  
 > **Publisher / Copyright:** `Copyright © 2026 Oktanetflow`  
-> **Repository Target:** `https://github.com/Oktanetflow/sshm` (Go module: `github.com/Oktanetflow/sshm`)  
+> **Repository Target:** `https://github.com/oktaaa17/sshm` (Go module: `github.com/oktaaa17/sshm`)  
 > **Origin:** Independent pure-Go greenfield implementation (NOT a clone or fork of `github.com/gu1llaum-3/sshm`)  
 > **Target Platform:** Windows 10 / 11 (`amd64`, `arm64`) first-class, with cross-platform Linux / macOS support  
 > **Form Factor:** Single standalone zero-CGo binary (`sshm.exe`) + per-user Windows Inno Setup `.exe` installer
@@ -47,7 +47,7 @@ go generate ./cmd/sshm
 
 # 2. Build reproducible Windows binary (NO UPX packing!)
 $env:CGO_ENABLED="0"
-go build -trimpath -ldflags "-s -w -X github.com/Oktanetflow/sshm/internal/cli.Version=1.0.0" -o dist/sshm.exe ./cmd/sshm
+go build -trimpath -ldflags "-s -w -X github.com/oktaaa17/sshm/internal/cli.Version=1.0.0" -o dist/sshm.exe ./cmd/sshm
 
 # 3. Run unit & integration tests with race detector and coverage
 go test -race -coverprofile=coverage.out ./...
@@ -239,4 +239,4 @@ func writeFileAtomic(path string, data []byte, perm os.FileMode) error {
 3. Launching `sshm.exe` displays the upgraded TUI with Split-Pane Host Inspector, async online/latency indicators, Tags/Notes/Forwards editing, Theme Switcher, Group Stats bar, and `Copyright © 2026 Oktanetflow` watermark.
 4. `(Get-Item dist\sshm.exe).VersionInfo` reports `CompanyName = "Oktanetflow"`, `LegalCopyright = "Copyright © 2026 Oktanetflow"`, `ProductName = "sshm"`, and embedded `asInvoker` manifest.
 5. Inno Setup script `packaging/windows/sshm.iss` compiles cleanly into `dist/sshm-setup-1.0.0-amd64.exe` (per-user install, no UAC prompt, User `PATH` registration, clean uninstall) and `SHA256SUMS.txt` is generated.
-6. Complete docs (`README.md`, `USAGE.md`, `SECURITY.md`, `CONTRIBUTING.md`, `CHANGELOG.md`, `LICENSE`, `docs/ARCHITECTURE.md`, `docs/WINDOWS_PUBLISHER_GUIDE.md`) and `.github/workflows/{ci,release}.yml` are committed cleanly to Git and ready for (or pushed to) `Oktanetflow/sshm`.
+6. Complete docs (`README.md`, `USAGE.md`, `SECURITY.md`, `CONTRIBUTING.md`, `CHANGELOG.md`, `LICENSE`, `docs/ARCHITECTURE.md`, `docs/WINDOWS_PUBLISHER_GUIDE.md`) and `.github/workflows/{ci,release}.yml` are committed cleanly to Git and ready for (or pushed to) `oktaaa17/sshm`.

@@ -8,9 +8,9 @@ import (
 	"time"
 	"unicode"
 
-	"github.com/Oktanetflow/sshm/internal/config"
-	"github.com/Oktanetflow/sshm/internal/credstore"
-	"github.com/Oktanetflow/sshm/internal/sshclient"
+	"github.com/oktaaa17/sshm/internal/config"
+	"github.com/oktaaa17/sshm/internal/credstore"
+	"github.com/oktaaa17/sshm/internal/sshclient"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 )

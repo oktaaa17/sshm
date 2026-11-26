@@ -5,7 +5,7 @@ package importer
 import (
 	"errors"
 
-	"github.com/Oktanetflow/sshm/internal/config"
+	"github.com/oktaaa17/sshm/internal/config"
 )
 
 func ImportPuTTYSessions(_ string) ([]config.Host, error) {

@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Oktanetflow/sshm/internal/config"
+	"github.com/oktaaa17/sshm/internal/config"
 	"golang.org/x/crypto/ssh"
 )
 

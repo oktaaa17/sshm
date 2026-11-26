@@ -3,8 +3,8 @@ package cli
 import (
 	"testing"
 
-	"github.com/Oktanetflow/sshm/internal/config"
-	"github.com/Oktanetflow/sshm/internal/sshclient"
+	"github.com/oktaaa17/sshm/internal/config"
+	"github.com/oktaaa17/sshm/internal/sshclient"
 )
 
 func TestResolveTargetHostIPv4AndIPv6(t *testing.T) {

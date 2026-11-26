@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Oktanetflow/sshm/internal/config"
+	"github.com/oktaaa17/sshm/internal/config"
 )
 
 func TestProbeTCPOnlineAndOffline(t *testing.T) {

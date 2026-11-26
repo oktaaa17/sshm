@@ -30,7 +30,7 @@ To display **Verified publisher: Oktanetflow** with zero SmartScreen warning for
 
 ### Option B: Standard OV / EV Code Signing Certificate (`.pfx` or Cloud HSM)
 1. Obtain a code signing certificate from a Microsoft-trusted CA (DigiCert, Sectigo, SSL.com, GlobalSign).
-2. Add two encrypted **GitHub Repository Secrets** in `Oktanetflow/sshm → Settings → Secrets and variables → Actions`:
+2. Add two encrypted **GitHub Repository Secrets** in `oktaaa17/sshm → Settings → Secrets and variables → Actions`:
    - `AUTHENTICODE_PFX_BASE64`: Base64-encoded `.pfx` certificate file
    - `AUTHENTICODE_PFX_PASSWORD`: Certificate export password
 3. Push a version tag (`git tag v1.0.0 && git push origin v1.0.0`) — `.github/workflows/release.yml` will automatically sign `sshm.exe`, `sshm-setup-1.0.0-amd64.exe`, and generate `SHA256SUMS.txt` with an RFC 3161 DigiCert timestamp!

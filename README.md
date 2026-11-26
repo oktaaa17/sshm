@@ -60,7 +60,7 @@
 ## Installation (Windows)
 
 ### Option 1: Per-User Windows EXE Installer (Recommended)
-1. Download `sshm-setup-1.0.0-amd64.exe` and `SHA256SUMS.txt` from [GitHub Releases](https://github.com/Oktanetflow/sshm/releases).
+1. Download `sshm-setup-1.0.0-amd64.exe` and `SHA256SUMS.txt` from [GitHub Releases](https://github.com/oktaaa17/sshm/releases).
 2. Verify checksum in PowerShell:
    ```powershell
    Get-FileHash .\sshm-setup-1.0.0-amd64.exe -Algorithm SHA256
@@ -72,7 +72,7 @@ Download `sshm-1.0.0-windows-amd64.exe` (or `arm64`), rename to `sshm.exe`, and 
 
 ### Option 3: Build from Source
 ```powershell
-git clone https://github.com/Oktanetflow/sshm.git
+git clone https://github.com/oktaaa17/sshm.git
 cd sshm
 powershell -ExecutionPolicy Bypass -File scripts/build-release.ps1 -Version 1.0.0
 ```

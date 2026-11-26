@@ -24,7 +24,7 @@ $env:CGO_ENABLED = "0"
 $env:GOOS = "windows"
 $env:GOARCH = "amd64"
 $exePath = Join-Path $distDir "sshm.exe"
-$ldflags = "-s -w -X github.com/Oktanetflow/sshm/internal/cli.Version=$Version"
+$ldflags = "-s -w -X github.com/oktaaa17/sshm/internal/cli.Version=$Version"
 go build -trimpath -ldflags $ldflags -o $exePath ./cmd/sshm
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 

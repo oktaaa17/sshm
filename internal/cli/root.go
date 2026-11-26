@@ -14,12 +14,12 @@ import (
 	"sync"
 	"text/tabwriter"
 
-	"github.com/Oktanetflow/sshm/internal/config"
-	"github.com/Oktanetflow/sshm/internal/credstore"
-	"github.com/Oktanetflow/sshm/internal/importer"
-	"github.com/Oktanetflow/sshm/internal/sshclient"
-	"github.com/Oktanetflow/sshm/internal/termwin"
-	"github.com/Oktanetflow/sshm/internal/tui"
+	"github.com/oktaaa17/sshm/internal/config"
+	"github.com/oktaaa17/sshm/internal/credstore"
+	"github.com/oktaaa17/sshm/internal/importer"
+	"github.com/oktaaa17/sshm/internal/sshclient"
+	"github.com/oktaaa17/sshm/internal/termwin"
+	"github.com/oktaaa17/sshm/internal/tui"
 	"github.com/spf13/cobra"
 )
 
