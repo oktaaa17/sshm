@@ -19,18 +19,18 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
-          go-version-file: go.mod
+          go-version: '1.27.x'
 
       - name: Run go vet
         run: go vet ./...
 
       - name: Run unit & integration tests with race detector
-        run: go test -race -coverprofile=coverage.out ./...
+        run: go test -race -v -coverprofile=coverage.out ./...
 
       - name: Run govulncheck (dependency & stdlib CVE scan)
         run: go run golang.org/x/vuln/cmd/govulncheck@latest ./...

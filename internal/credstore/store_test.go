@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"errors"
 	"runtime"
+	"syscall"
 	"testing"
 )
 
@@ -61,6 +62,10 @@ func TestWindowsBackends(t *testing.T) {
 
 		secret := []byte("WinCredSecret#99")
 		if err := store.Set(ref, secret); err != nil {
+			// Headless CI runners (e.g. GitHub Actions windows-latest) may lack an interactive logon session (ERROR_NO_SUCH_LOGON_SESSION = 1312).
+			if errors.Is(err, syscall.Errno(1312)) {
+				t.Skipf("Windows Credential Manager unavailable in headless CI logon session: %v", err)
+			}
 			t.Fatalf("WinCred Set failed: %v", err)
 		}
 		got, err := store.Get(ref)
@@ -87,6 +92,9 @@ func TestWindowsBackends(t *testing.T) {
 		ref := "sshm:dpapi-test-host"
 		secret := []byte("DPAPISecret!42")
 		if err := store.Set(ref, secret); err != nil {
+			if errors.Is(err, syscall.Errno(1312)) {
+				t.Skipf("Windows DPAPI unavailable in headless CI logon session: %v", err)
+			}
 			t.Fatalf("DPAPI Set failed: %v", err)
 		}
 		got, err := store.Get(ref)
