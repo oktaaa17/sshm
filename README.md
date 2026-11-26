@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/assets/illustrations/hero-banner.png" alt="sshm by Oktanetflow — Agile CLI/TUI SSH Client for Windows" width="100%" />
+</p>
+
 # sshm — Agile CLI/TUI SSH Client for Windows
 
 > **Publisher:** **Oktanetflow**  
@@ -7,7 +11,15 @@
 
 `sshm` is a fast, single-binary SSH client and server manager engineered from the ground up for **Windows 10/11** (Windows Terminal, PowerShell 5.1/7+, CMD, VS Code) with cross-platform Linux/macOS support.
 
-> **Independent Codebase Notice:** `sshm` by Oktanetflow is a completely original pure-Go SSH client & TUI implementation (not a clone or fork of `gu1llaum-3/sshm`). See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for a full technical breakdown.
+> **Independent Codebase Notice:** `sshm` by Oktanetflow is a completely original pure-Go SSH client & TUI implementation (not a clone or fork of `gu1llaum-3/sshm`). See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) and [ADR-006](docs/decisions/ADR-006-independent-codebase-and-distribution.md) for a full technical breakdown.
+
+---
+
+## Illustrated How-To Walkthrough
+
+![How to Use sshm — Agile TUI Workflow](docs/assets/videos/demo-tui-agile-workflow.gif)
+
+Watch all 3 illustrated how-to videos (`.gif` + `.webm`) covering TUI navigation, Windows Credential Manager password saving, port forwarding (`-L`/`-R`/`-D`), parallel `@group` execution, and SFTP copy in **[docs/VIDEOS.md](docs/VIDEOS.md)**.
 
 ---
 
@@ -31,29 +43,13 @@
 
 ---
 
-## TUI Preview
+## Visual Mockups & Architecture
 
-```text
- sshm v1.0.0  5 hosts · 2 groups · 4 online       [?] Help [a] Add [g] Group [t] Theme [r] Probe [q] Quit
- ────────────────────────────────────────────────────────────────────────────────────────────────────────
- > search: _                                               [All] prod  staging
+| Agile Split-Pane TUI (`minimal-dark`) | Zero-Plaintext Credential Security |
+| :---: | :---: |
+| ![TUI minimal-dark Mockup](docs/assets/mockups/tui-minimal-dark.png) | ![Credential Vault Architecture](docs/assets/illustrations/security-credential-vault.png) |
 
- ▼ prod (3)                                          │ Host — prod-api-01
-   ●★ prod-api-01   root@10.0.1.12  [pw]  ● 14ms ⇄1  │ ──────────────────────────────────────────────
-   ●  prod-api-02   root@10.0.1.13  [key] ● 22ms     │ Endpoint : root@10.0.1.12:22
-   ●  prod-db-01    pg@10.0.1.20    [pw]  ● 31ms     │ Group    : ● prod  ★ Pinned
-                                                     │ Auth     : password (Windows Credential Mgr)
- ▼ staging (2)                                       │ Jump     : via bastion-prod (inherited)
-   ●  stg-web       ubuntu@10.0.2.5 [pw]  ● 45ms     │ Status   : ● Online (14ms TCP)
-   ●  stg-worker    ubuntu@10.0.2.6 [pw]  ● off      │ Tags     : #api #linux
-                                                     │ Tunnels  : 1 configured ([f] edit)
-                                                     │   L 127.0.0.1:8080 -> 127.0.0.1:80
-                                                     │ Notes    : Primary production API node
-                                                     │ Last Seen: 2m ago
- ────────────────────────────────────────────────────────────────────────────────────────────────────────
- [Enter] Connect [Tab] Group [/] Search [i] Inspector [e] Edit [f] Forwards [d] Delete [p] Pin
- Copyright © 2026 Oktanetflow                          Theme: minimal-dark · Store: Windows Credential Manager
-```
+Browse all 6 high-DPI mockups (`minimal-dark`, `minimal-light`, `mono`, Add Host, Port Forwards, Group Inspector) in **[docs/MOCKUPS.md](docs/MOCKUPS.md)**.
 
 ---
 
@@ -115,14 +111,23 @@ sshm completion powershell | Out-String | Invoke-Expression
 
 ---
 
-## Documentation
+## Documentation Suite
 
-- [docs/USAGE.md](docs/USAGE.md) — Complete TUI keybindings, CLI commands, and configuration reference
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — Tech stack, package map, and comparison vs `gu1llaum-3/sshm`
-- [docs/WINDOWS_PUBLISHER_GUIDE.md](docs/WINDOWS_PUBLISHER_GUIDE.md) — Authenticode, Microsoft Trusted Signing, SmartScreen & WDSI guide
-- [SECURITY.md](SECURITY.md) — Security architecture, verification, and responsible disclosure
-- [SPEC.md](SPEC.md) — Living project specification
-- [CHANGELOG.md](CHANGELOG.md) — Version history
+| Resource | Description |
+| :--- | :--- |
+| [docs/README.md](docs/README.md) | **Documentation Hub** — Central index & visual illustrations gallery |
+| [docs/VIDEOS.md](docs/VIDEOS.md) | **Illustrated How-To Demo Videos** — 3 guided workflows (`.gif` + `.webm`) |
+| [docs/MOCKUPS.md](docs/MOCKUPS.md) | **Visual TUI Mockups** — High-DPI screens for all 3 themes & modals |
+| [docs/USE_CASES.md](docs/USE_CASES.md) | **Real-World Use Cases** — 6 end-to-end playbooks (Bastion, DB tunnels, Fleet Ops, PuTTY migration, Portable Vault) |
+| [docs/GUIDELINES.md](docs/GUIDELINES.md) | **Operational & Security Guidelines** — Backend matrix, naming, Defender trust & contributor standards |
+| [docs/USAGE.md](docs/USAGE.md) | **Complete User Guide** — Every TUI keybinding, CLI command & config setting |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | **Architecture & Tech Stack** — Package map, diagrams & comparison vs `gu1llaum-3/sshm` |
+| [docs/decisions/README.md](docs/decisions/README.md) | **Architecture Decision Records (ADRs)** — `ADR-001` through `ADR-006` explaining *why* |
+| [docs/WINDOWS_PUBLISHER_GUIDE.md](docs/WINDOWS_PUBLISHER_GUIDE.md) | **Windows Publisher & SmartScreen Guide** — Authenticode, Trusted Signing & WDSI |
+| [SECURITY.md](SECURITY.md) | **Security Policy** — Threat model, verification & responsible disclosure |
+| [SPEC.md](SPEC.md) & [docs/SPEC_DOCUMENTATION.md](docs/SPEC_DOCUMENTATION.md) | **Living Specifications** — Product & documentation specs |
+| [CLAUDE.md](CLAUDE.md) & [CONTRIBUTING.md](CONTRIBUTING.md) | **Contributor & Agent Guide** — Build commands, invariants & PR workflow |
+| [CHANGELOG.md](CHANGELOG.md) | **Changelog** — Version history |
 
 ---
 

@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 620" width="1120" height="620" font-family="Segoe UI, Inter, -apple-system, BlinkMacSystemFont, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D1117"/>
+      <stop offset="100%" stop-color="#131A24"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5FD7FF"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+    <marker id="arrowCyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#5FD7FF"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#87D787"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#FFAF5F"/>
+    </marker>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#AF87FF"/>
+    </marker>
+  </defs>
+
+  <rect width="1120" height="620" rx="16" fill="url(#bgGrad)"/>
+
+  <!-- Header -->
+  <text x="48" y="54" fill="#5FD7FF" font-size="24" font-weight="700">sshm — Pure-Go Windows-First Architecture</text>
+  <text x="48" y="80" fill="#8B949E" font-size="14">Single static binary (CGO_ENABLED=0) · Zero external SSH binaries · Copyright © 2026 Oktanetflow</text>
+  <line x1="48" y1="98" x2="1072" y2="98" stroke="#263040" stroke-width="1.5"/>
+
+  <!-- Layer 1: Entry & CLI -->
+  <rect x="48" y="124" width="1024" height="78" rx="12" fill="#161B22" stroke="#5FD7FF" stroke-width="1.6"/>
+  <text x="72" y="153" fill="#5FD7FF" font-size="15" font-weight="700">cmd/sshm — Entrypoint &amp; Win32 PE Resources</text>
+  <text x="72" y="177" fill="#C9D1D9" font-size="13">main.go · versioninfo.json (Oktanetflow PE Metadata) · sshm.exe.manifest (asInvoker + UTF-8) · sshm.ico</text>
+  <rect x="850" y="142" width="198" height="40" rx="8" fill="#112233" stroke="#38BDF8" stroke-width="1"/>
+  <text x="949" y="167" text-anchor="middle" fill="#7DD3FC" font-size="13" font-weight="600">No UAC · No UPX</text>
+
+  <!-- Arrow Down -->
+  <line x1="560" y1="202" x2="560" y2="232" stroke="#5FD7FF" stroke-width="2" marker-end="url(#arrowCyan)"/>
+
+  <!-- Layer 2: CLI & TUI -->
+  <rect x="48" y="236" width="494" height="114" rx="12" fill="#161B22" stroke="#5FD7FF" stroke-width="1.5"/>
+  <text x="72" y="266" fill="#5FD7FF" font-size="16" font-weight="700">internal/cli (Cobra Command Layer)</text>
+  <text x="72" y="292" fill="#C9D1D9" font-size="13">• connect, ls, add, edit, rm, group, exec, cp, import, export</text>
+  <text x="72" y="314" fill="#C9D1D9" font-size="13">• IPv4 &amp; bracketed [IPv6]:port target parser</text>
+  <text x="72" y="336" fill="#8B949E" font-size="12.5">• Native PowerShell tab completion &amp; validated config set</text>
+
+  <rect x="578" y="236" width="494" height="114" rx="12" fill="#161B22" stroke="#AF87FF" stroke-width="1.5"/>
+  <text x="602" y="266" fill="#AF87FF" font-size="16" font-weight="700">internal/tui (Bubble Tea Agile TUI)</text>
+  <text x="602" y="292" fill="#C9D1D9" font-size="13">• Responsive Split-Pane Host &amp; Group Inspector (≥100 cols)</text>
+  <text x="602" y="314" fill="#C9D1D9" font-size="13">• Async TCP Latency Probes, Fuzzy Search, Port Forward Modal</text>
+  <text x="602" y="336" fill="#8B949E" font-size="12.5">• Live Themes (minimal-dark · minimal-light · mono)</text>
+
+  <!-- Connector CLI <-> TUI -->
+  <line x1="542" y1="293" x2="574" y2="293" stroke="#AF87FF" stroke-width="2" marker-end="url(#arrowPurple)"/>
+
+  <!-- Arrows Down to Core Services -->
+  <line x1="185" y1="350" x2="185" y2="394" stroke="#87D787" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <line x1="435" y1="350" x2="435" y2="394" stroke="#FFAF5F" stroke-width="2" marker-end="url(#arrowAmber)"/>
+  <line x1="685" y1="350" x2="685" y2="394" stroke="#5FD7FF" stroke-width="2" marker-end="url(#arrowCyan)"/>
+  <line x1="935" y1="350" x2="935" y2="394" stroke="#AF87FF" stroke-width="2" marker-end="url(#arrowPurple)"/>
+
+  <!-- Layer 3: 4 Core Engine Packages -->
+  <rect x="48" y="398" width="244" height="156" rx="12" fill="#161B22" stroke="#87D787" stroke-width="1.5"/>
+  <text x="66" y="426" fill="#87D787" font-size="15" font-weight="700">internal/sshclient</text>
+  <text x="66" y="450" fill="#C9D1D9" font-size="12.5">• Pure-Go x/crypto/ssh</text>
+  <text x="66" y="471" fill="#C9D1D9" font-size="12.5">• Cycle-checked ProxyJump</text>
+  <text x="66" y="492" fill="#C9D1D9" font-size="12.5">• -L / -R / -D SOCKS5</text>
+  <text x="66" y="513" fill="#C9D1D9" font-size="12.5">• Built-in SFTP (cp)</text>
+  <text x="66" y="534" fill="#8B949E" font-size="12">• known_hosts TOFU &amp; probe</text>
+
+  <rect x="308" y="398" width="244" height="156" rx="12" fill="#161B22" stroke="#FFAF5F" stroke-width="1.5"/>
+  <text x="326" y="426" fill="#FFAF5F" font-size="15" font-weight="700">internal/credstore</text>
+  <text x="326" y="450" fill="#C9D1D9" font-size="12.5">• Windows Credential Mgr</text>
+  <text x="326" y="471" fill="#C9D1D9" font-size="12.5">• Windows DPAPI Store</text>
+  <text x="326" y="492" fill="#C9D1D9" font-size="12.5">• Argon2id + AES-256-GCM</text>
+  <text x="326" y="513" fill="#C9D1D9" font-size="12.5">• Explicit Memory Zeroing</text>
+  <text x="326" y="534" fill="#8B949E" font-size="12">• Zero plaintext on disk</text>
+
+  <rect x="568" y="398" width="244" height="156" rx="12" fill="#161B22" stroke="#5FD7FF" stroke-width="1.5"/>
+  <text x="586" y="426" fill="#5FD7FF" font-size="15" font-weight="700">internal/config</text>
+  <text x="586" y="450" fill="#C9D1D9" font-size="12.5">• config.toml &amp; hosts.toml</text>
+  <text x="586" y="471" fill="#C9D1D9" font-size="12.5">• Group Default Inheritance</text>
+  <text x="586" y="492" fill="#C9D1D9" font-size="12.5">• Mutex Atomic Temp Writes</text>
+  <text x="586" y="513" fill="#C9D1D9" font-size="12.5">• Win32 NTFS Owner DACLs</text>
+  <text x="586" y="534" fill="#8B949E" font-size="12">• Race-free parallel exec</text>
+
+  <rect x="828" y="398" width="244" height="156" rx="12" fill="#161B22" stroke="#AF87FF" stroke-width="1.5"/>
+  <text x="846" y="426" fill="#AF87FF" font-size="15" font-weight="700">termwin &amp; importer</text>
+  <text x="846" y="450" fill="#C9D1D9" font-size="12.5">• Win32 VT100 Raw Mode</text>
+  <text x="846" y="471" fill="#C9D1D9" font-size="12.5">• 150ms Live Resize Watch</text>
+  <text x="846" y="492" fill="#C9D1D9" font-size="12.5">• OpenSSH Agent Pipe</text>
+  <text x="846" y="513" fill="#C9D1D9" font-size="12.5">• ~/.ssh/config &amp; PuTTY Reg</text>
+  <text x="846" y="534" fill="#8B949E" font-size="12">• .sshm.enc Encrypted Backup</text>
+
+  <!-- Footer -->
+  <text x="48" y="592" fill="#6E7681" font-size="12">Module: github.com/oktaaa17/sshm · See docs/decisions/README.md for ADR-001 through ADR-006</text>
+  <text x="1072" y="592" text-anchor="end" fill="#6E7681" font-size="12">Copyright © 2026 Oktanetflow</text>
+</svg>
